@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     //  Says states always get a string? Even if not coming from a textbox? I'm confused :(
     const [enteredTitle, setEnteredTitle] = useState('');
@@ -55,7 +55,7 @@ const ExpenseForm = () => {
             date: new Date(enteredDate)
         };
 
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
         //  Because this is bound to the "value" property of the input, this will clear the input!
         setEnteredTitle('');
         setEnteredAmount('');
